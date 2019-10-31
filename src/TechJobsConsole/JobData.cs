@@ -164,19 +164,18 @@ You'll need to call FindByValue from somewhere in Main. We'll leave it up to you
                 foreach(var column in row) //For each column in each row (Dictionary)
                 {
 
-                    foreach (KeyValuePair<string, string> item in row) //For each item in each Dictionary row
+                    if (column.Value.Contains(value)) //If the value of the item contains our search term value
+
                     {
-                        if (item.Value.Contains(value)) //If the value of the item contains our search term value
-                        {
-                            jobs.Add(row); //Add the Dictionary row to our new list of Dictionaries
+                        jobs.Add(row); //Add the Dictionary row to our new list of Dictionaries
+                        break; //Don't check this column/row anymore (don't repeat this one in the results)
+
                         }
-                    }
+
                 }
             }
 
             return jobs; //After going through everything, return the new list of Dictionaries which are our search results
-
-
 
         }
 
