@@ -135,24 +135,26 @@ think instead about creating a nested loop to loop over each dictionary key. You
 property to do this.If a new field is added to the job records, this approach will print out the new field 
 without any updates to PrintJobs.*/
 
-                foreach (var job in someJobs) //(Dictionary<string, string> job in someJobs)
+            if (someJobs.Count==0)
+            {
+
+                Console.WriteLine("There are no results."); //Appears to be working but need to test more thoroughly
+            }
+            else
+            {
+                foreach (var job in someJobs) 
                 {
 
                     Console.WriteLine("*****");
 
                     foreach (KeyValuePair<string, string> item in job)
                     {
-                    
-                    Console.WriteLine("{0}: {1}", item.Key, item.Value);
+
+                        Console.WriteLine("{0}: {1}", item.Key, item.Value);
                     }
                 }
-  
 
-
-
-
-            Console.WriteLine("position type: ");
-
+            }
 
         }
     }
