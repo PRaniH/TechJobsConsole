@@ -118,7 +118,42 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            Console.WriteLine("printJobs is not implemented yet");
+            /*It should print out something like this:
+
+            *****
+            position type: Data Scientist / Business Intelligence
+            name: Sr.IT Analyst(Data/ BI)
+employer: Bull Moose Industries
+location: Saint Louis
+core competency: Statistical Analysis
+*****
+If there are no results, it should print an appropriate messages.
+
+To do this, you'll need to iterate over a List of jobs. Each job is itself a Dictionary. 
+While you can get each of the items out of the dictionary using the known keys ("employer", "location", etc), 
+think instead about creating a nested loop to loop over each dictionary key. You'll want to use the Dictionary.Keys
+property to do this.If a new field is added to the job records, this approach will print out the new field 
+without any updates to PrintJobs.*/
+
+                foreach (var job in someJobs) //(Dictionary<string, string> job in someJobs)
+                {
+
+                    Console.WriteLine("*****");
+
+                    foreach (KeyValuePair<string, string> item in job)
+                    {
+                    
+                    Console.WriteLine("{0}: {1}", item.Key, item.Value);
+                    }
+                }
+  
+
+
+
+
+            Console.WriteLine("position type: ");
+
+
         }
     }
 }
