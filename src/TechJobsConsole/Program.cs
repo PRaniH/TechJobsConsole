@@ -63,7 +63,11 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        Console.WriteLine("Search all fields not yet implemented.");
+                        //Console.WriteLine("Search all fields not yet implemented.");
+                        //Added this 
+                        searchResults = JobData.FindByValue(searchTerm);
+                        PrintJobs(searchResults);
+
                     }
                     else
                     {
@@ -135,14 +139,14 @@ think instead about creating a nested loop to loop over each dictionary key. You
 property to do this.If a new field is added to the job records, this approach will print out the new field 
 without any updates to PrintJobs.*/
 
-            if (someJobs.Count==0)
+            if (someJobs.Count == 0)
             {
 
                 Console.WriteLine("There are no results."); //Appears to be working but need to test more thoroughly
             }
             else
             {
-                foreach (var job in someJobs) 
+                foreach (var job in someJobs)
                 {
 
                     Console.WriteLine("*****");
@@ -157,5 +161,7 @@ without any updates to PrintJobs.*/
             }
 
         }
+    
     }
+
 }
