@@ -161,10 +161,13 @@ You'll need to call FindByValue from somewhere in Main. We'll leave it up to you
             foreach (Dictionary<string, string> row in AllJobs) //For each row (Dictionary) in the the file loaded by LoadData()
             {
 
-                foreach(var column in row) //For each column in each row (Dictionary)
+                foreach (var column in row) //For each column in each row (Dictionary)
                 {
+                    var columnLower = column.Value.ToLower(); //Make this case insensitive
 
-                    if (column.Value.Contains(value)) //If the value of the item contains our search term value
+                    var valueLower = value.ToLower(); //Make the search term value case insensitive
+                        
+                    if (columnLower.Contains(valueLower)) //If the value of the item contains our search term value
 
                     {
                         jobs.Add(row); //Add the Dictionary row to our new list of Dictionaries
