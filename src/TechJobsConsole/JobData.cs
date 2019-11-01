@@ -47,9 +47,11 @@ namespace TechJobsConsole
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-                string aValue = row[column];
+                var valueLower = value.ToLower(); //Make the search term value case insensitive
 
-                if (aValue.Contains(value))
+                string aValue = row[column].ToLower();
+
+                if (aValue.Contains(valueLower))
                 {
                     jobs.Add(row);
                 }
